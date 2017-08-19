@@ -1,0 +1,9 @@
+<%= render('layouts/errors', :object => @product) %>
+
+  <%= form_for [@brand, @product] do |f| %>
+    <%= f.label :item %>
+    <%= f.text_field :item %>
+    <%= f.label :vote %>
+    <%= f.text_field :vote %>
+    <p><%= f.submit %></p>
+  <% end %>
