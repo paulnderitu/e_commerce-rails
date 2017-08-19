@@ -1,5 +1,14 @@
 <h1>New brand</h1>
 
+<% if @brand.errors.any? %>
+   <h3>Oops there were some errors. Please try again:</h3>
+   <ul>
+     <% @brand.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+     <% end %>
+   </ul>
+ <% end %>
+
   <%= form_for @brand do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
