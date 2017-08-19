@@ -14,9 +14,15 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    @brand = Brand.find(params[:brand_id])
+    @product = @brand.products.find(params[:id])
+    render :edit
+  end
+
   private
 
   def product_params
-    params.require(:product).permit(:item)
+    params.require(:product).permit(:item, :vote, :brand_id, :user_id)
   end
 end
