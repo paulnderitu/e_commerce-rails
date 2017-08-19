@@ -1,0 +1,10 @@
+<%= render "layouts/errors", :object => @list %>
+
+  <%= form_for @brand do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :link %>
+    <%= f.text_field :link %>
+    <%= f.submit %>
+  <% end %>
+  
