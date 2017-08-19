@@ -1,0 +1,18 @@
+<h1>Edit brand</h1>
+
+  <% if @brand.errors.any? %>
+    <h3>Please fix these errors:</h3>
+    <ul>
+      <% @brand.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= form_for @brand do |f| %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %><br>
+    <%= f.label :link %><br>
+    <%= f.text_field :link %><br>
+    <%= f.submit  %>
+  <% end %>
