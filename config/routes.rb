@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  resources :brands
+  resources :brands do
+    resources :products
+  end
 end
