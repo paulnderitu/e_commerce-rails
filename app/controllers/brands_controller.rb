@@ -14,6 +14,7 @@ class BrandsController < ApplicationController
   def create
     @brand = Brand.new(brand_params)
     if @brand.save
+      flash[:notice] = 'Brand added successfully!'
       redirect_to brands_path
     else
       render :new
@@ -28,6 +29,7 @@ class BrandsController < ApplicationController
   def update
     @brand = Brand.find(params[:id])
     if @brand.update(brand_params)
+      flash[:notice] = 'Brand updated successfully!'
       redirect_to brands_path
     else
       render :edit
@@ -37,6 +39,7 @@ class BrandsController < ApplicationController
   def destroy
     @brand = Brand.find(params[:id])
     @brand.destroy
+    flash[:notice] = 'Brand destroyed successfully!'
     redirect_to brands_path
   end
 
