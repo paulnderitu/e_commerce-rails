@@ -1,5 +1,9 @@
 <h1>Brands</h1>
 
+<h1>Welcome to E Spares</h1>
+
+<%= image_tag "spaee.jpeg" %>
+
   <ul>
     <% @brands.each do |brand| %>
     <li><%= link_to brand.title, brand_path(brand) %></li>
