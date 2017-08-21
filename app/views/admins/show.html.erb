@@ -1,0 +1,27 @@
+<h1><%= @user.email %></h1>
+
+<% if @user.products.any? %>
+  <h4>Here are the products from this user:</h4>
+
+  <ul>
+    <% @user.products.each do |product| %>
+      <li>
+        <%= product.item %>
+        <br>
+        <%= link_to "Delete", brand_product_path(@user, product),
+                                 :data => {:confirm => "Are you sure?",
+                                                :method => "delete"} %>
+
+      </l
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no products added by this user!</p>
+<% end %>
+<p><%= link_to "Delete user", user_path(@brand),
+                         :data => {:confirm => "Are you sure?",
+                                   :method => "delete"} %></p>
+
+<%= button_to "Cancel my account", registration_path(user.email), data: { confirm: "Are you sure?" }, method: :delete %>
+
+ <p><%= link_to "Return to brands", brands_path %></p>

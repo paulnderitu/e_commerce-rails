@@ -1,0 +1,7 @@
+<% if current_user.admin? %>
+  <% @users.each do |user| %>
+    <%= link_to user.email, admin_path(user) %><br>
+  <% end %>
+<% else %>
+<h1>YOU ARE NOT AN ADMIN!</h1>
+<% end %>
