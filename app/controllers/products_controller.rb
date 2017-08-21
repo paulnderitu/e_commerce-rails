@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!
   def new
     @brand = Brand.find(params[:brand_id])
     @product = @brand.products.new
@@ -7,6 +8,7 @@ class ProductsController < ApplicationController
   def create
     @brand = Brand.find(params[:brand_id])
     @product = @brand.products.new(product_params)
+    @user = @product.user
     if @product.save
       flash[:notice] = 'Product added successfully!'
       redirect_to brand_path(@product.brand)
