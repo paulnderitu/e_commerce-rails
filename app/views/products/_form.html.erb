@@ -3,5 +3,10 @@
   <%= form_for [@brand, @product] do |f| %>
     <%= f.label :item %>
     <%= f.text_field :item %>
+    <%= f.select(:user_id) do %>
+    <% User.all.each do |usr| %>
+      <%= content_tag(:option, usr.email, value: usr.id) %>
+    <% end %>
+  <% end %>
     <p><%= f.submit %></p>
   <% end %>
