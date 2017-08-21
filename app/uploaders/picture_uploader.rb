@@ -1,5 +1,4 @@
 class PictureUploader < CarrierWave::Uploader::Base
-
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
@@ -28,6 +27,9 @@ class PictureUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+  def extension_white_list
+    %w[jpg jpeg gif png]
+  end
 
   # Create different versions of your uploaded files:
   # version :thumb do
@@ -45,5 +47,4 @@ class PictureUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
 end
