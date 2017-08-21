@@ -5,6 +5,11 @@ class ProductsController < ApplicationController
     @product = @brand.products.new
   end
 
+  def show
+    @brand = Brand.find(params[:brand_id])
+    @product = @brand.products.find(params[:id])
+  end
+
   def create
     @brand = Brand.find(params[:brand_id])
     @product = @brand.products.new(product_params)
