@@ -23,7 +23,7 @@
   <% if user_signed_in %>
   <p><%= link_to "Add a product", new_brand_product_path(@brand) %></p>
   <% if current_user.admin? %>
-<p><%= link_to "Edit", edit_brand_path(@brand) %></p>
+
  <p><%= link_to "Delete", brand_path(@brand),
                           :data => {:confirm => "You sure?",
                                     :method => "delete"} %></p>
