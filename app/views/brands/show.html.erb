@@ -7,24 +7,27 @@
     <ul>
       <% @brand.products.each do |product| %>
         <li>
-          <%= product.item %> |
+          <%= product.item %>
+          <% if user_signed_in %>|
           <%= link_to "Edit", edit_brand_product_path(@brand, product) %> |
           <%= link_to "Delete", brand_product_path(@brand, product),
                                    :data => {:confirm => "Are you sure?",
                                                   :method => "delete"} %>
+                                                  <%end%>
         </li>
       <% end %>
     </ul>
   <% else %>
     <p>There are no products yet!</p>
   <% end %>
-
+  <% if user_signed_in %>
   <p><%= link_to "Add a product", new_brand_product_path(@brand) %></p>
-
+  <% if current_user.admin? %>
 <p><%= link_to "Edit", edit_brand_path(@brand) %></p>
  <p><%= link_to "Delete", brand_path(@brand),
                           :data => {:confirm => "You sure?",
                                     :method => "delete"} %></p>
 
-
+<%end%>
+<%end%>
   <p><%= link_to "Return to brands", brands_path %></p>

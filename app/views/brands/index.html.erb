@@ -12,4 +12,10 @@
 
   <hr>
 
-   <%= link_to "New Brand", new_brand_path %>
+
+  <% if user_signed_in? %>
+    <% if current_user.admin? %>
+      <hr>
+       <%= link_to "New Brand", new_brand_path %>
+    <% end %>
+  <% end %>
