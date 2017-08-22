@@ -1,6 +1,6 @@
 <%= render "layouts/errors", :object => @brand %>
 
-  <%= form_for @brand do |f| %>
+  <%= form_for @brand, remote: true do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
     <%= f.label :link %>

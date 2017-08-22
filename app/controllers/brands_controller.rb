@@ -15,7 +15,10 @@ class BrandsController < ApplicationController
     @brand = Brand.new(brand_params)
     if @brand.save
       flash[:notice] = 'Brand added successfully!'
-      redirect_to brands_path
+      respond_to do |format|
+        format.html { redirect_to brands_path(@brand) }
+        format.js
+      end
     else
       render :new
     end
