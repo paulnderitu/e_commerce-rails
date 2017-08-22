@@ -44,7 +44,10 @@ class ProductsController < ApplicationController
     @product = @brand.products.find(params[:id])
     @product.destroy
     flash[:notice] = 'Product deleted successfully!'
-    redirect_to brands_path
+    respond_to do |format|
+      format.html { redirect_to brands_path(@brand) }
+      format.js
+    end
   end
 
   private
