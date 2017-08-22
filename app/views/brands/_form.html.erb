@@ -3,8 +3,10 @@
   <%= form_for @brand, remote: true do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
+    <br>
     <%= f.label :link %>
     <%= f.text_field :link %>
+    <br>
     <%= f.file_field :avatar %>
     <%= f.submit %>
   <% end %>
