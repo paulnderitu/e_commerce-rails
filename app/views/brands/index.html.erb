@@ -21,10 +21,7 @@
   <div class="new_brand">
   <% if user_signed_in? %>
     <% if current_user.admin? %>
-      <hr>
-
        <%= link_to "New Brand", new_brand_path, id: "new_link", remote: true %>
-
     <% end %>
   <% end %>
   </div>
