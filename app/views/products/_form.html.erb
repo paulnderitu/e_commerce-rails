@@ -6,12 +6,8 @@
     <%= f.label :price %>
     <%= f.number_field :price %>
 
-    <%= f.select(:user_id) do %>
-    <% User.all.each do |usr| %>
-      <%= content_tag(:option, usr.email, value: usr.id) %>
-    <% end %>
-  <% end %>
+    <%= f.hidden_field :user_id, value: current_user.id%>
   <br>
   <p>  <%= f.file_field :picture %></p>
-    <p><%= f.submit %></p>
+    <p><%= f.submit class: 'btn btn-success' %></p>
   <% end %>
