@@ -4,7 +4,7 @@
 
 <%= image_tag "spaee.jpeg" %>
 
-<div  class="brands" id="old_brands">
+<div  class="brands" id="added_brands">
   <ul>
     <% @brands.each do |brand| %>
     <li><%= link_to brand.title, brand_path(brand) %></li>
