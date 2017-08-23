@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @products = Product.all
+    @products = Brand.find(params[:brand_id]).products
     @order_good = current_order.order_goods.new
   end
 
@@ -58,6 +58,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:item, :vote, :picture, :brand_id, :user_id)
+    params.require(:product).permit(:item, :vote, :picture, :brand_id, :user_id, :price)
   end
 end

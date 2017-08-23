@@ -1,3 +1,4 @@
+
 <% @products.each do |product| %>
    <p><%= product.item %> | <%= number_to_currency product.price %>
    <%= form_for @order_good do |f| %>

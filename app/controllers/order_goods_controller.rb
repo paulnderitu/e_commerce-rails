@@ -4,7 +4,7 @@ class OrderGoodsController < ApplicationController
     @good = @order.order_goods.new(good_params)
     @order.save
     session[:order_id] = @order.id
-    redirect_to products_path
+    redirect_to cart_path
   end
 
   def destroy
