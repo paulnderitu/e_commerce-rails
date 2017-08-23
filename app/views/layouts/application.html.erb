@@ -43,7 +43,7 @@ crossorigin="anonymous"></script>
     </form>
   </div>
 </nav>
-
+<div class="container">
 <% if user_signed_in? %>
 <p>Hello, <%= current_user.email %></p>
 <%= button_to "Logout", destroy_user_session_path, :method => 'delete' %>
@@ -54,5 +54,6 @@ crossorigin="anonymous"></script>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+  </div>
   </body>
 </html>
