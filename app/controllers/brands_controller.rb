@@ -1,5 +1,6 @@
 class BrandsController < ApplicationController
   def index
+    @response = JSON.parse(Topstories.get_topstories)
     @brands = Brand.all
   end
 
