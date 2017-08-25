@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :charges
 
   resource :cart, only: [:show]
   resources :admins
