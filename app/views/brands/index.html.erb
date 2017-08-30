@@ -1,22 +1,7 @@
 <h1>Brands</h1>
 
 <h1>Welcome to E Spares</h1>
-<div class="row newsr" >
-<h2>NY Times Top Stories</h2>
-<div class="news">
-<%@response["results"].each do |story|%>
-Section: <%= story["section"]%>
-Title: <a href="<%= story["url"]%>"><%= story["title"]%></a>
-by: <%= story["byline"]%>
 
-<% story["multimedia"].each do |multi|%>
-<img src="<%= multi["url"]%>" alt="">
-<p><%= multi["caption"]%></p>
-<% end %>
-
-<% end %>
-</div>
-</div>
 
 <%= image_tag "spaee.jpeg" %>
 
@@ -40,4 +25,25 @@ by: <%= story["byline"]%>
        <%= link_to "New Brand", new_brand_path, id: "new_link", remote: true %>
     <% end %>
   <% end %>
+  </div>
+
+  <div class="row newsr" >
+  <h2>NY Times Top Stories</h2>
+  <div class="news">
+  <%@response["results"].each do |story|%>
+  Section: <%= story["section"]%><br>
+  Title: <a href="<%= story["url"]%>"><%= story["title"]%></a>
+
+
+  <br><%= story["byline"]%><br> 
+  <% story["multimedia"].each do |multi|%>
+  <% if multi["format"] == "Normal"%>
+  <img src="<%= multi["url"]%>" alt="">
+  <% end %>
+  <% end %>
+    <hr>
+
+  <% end %>
+
+  </div>
   </div>
