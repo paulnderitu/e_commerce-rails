@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
-  resources :charges
 
+  resources :categories
+
+  resources :charges
   resource :cart, only: [:show]
   resources :admins
   root to: 'brands#index'
