@@ -20,13 +20,6 @@ ActiveRecord::Schema.define(version: 20170831090035) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "associations", force: :cascade do |t|
-    t.integer "brand_id"
-    t.integer "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "brands", force: :cascade do |t|
     t.string "title"
     t.string "link"
