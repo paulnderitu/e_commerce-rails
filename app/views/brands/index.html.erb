@@ -3,7 +3,7 @@
 <h1>Welcome to E Spares</h1>
 
 
-<%= image_tag "spaee.jpeg" %>
+<%= image_tag "e_go.jpeg" %>
 
 <div  class="brands" id="added_brands">
   <ul>
@@ -35,7 +35,7 @@
   Title: <a href="<%= story["url"]%>"><%= story["title"]%></a>
 
 
-  <br><%= story["byline"]%><br> 
+  <br><%= story["byline"]%><br>
   <% story["multimedia"].each do |multi|%>
   <% if multi["format"] == "Normal"%>
   <img src="<%= multi["url"]%>" alt="">
