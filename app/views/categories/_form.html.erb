@@ -3,5 +3,12 @@
   <%= form_for @category do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
+    <br>
+    Select Brand:
+    <%= f.select(:brand_id) do %>
+    <% Brand.all.each do |brand| %>
+      <%= content_tag(:option, brand.title, value: brand.id) %>
+    <% end %>
+  <% end %>
     <%= f.submit %>
   <% end %>
