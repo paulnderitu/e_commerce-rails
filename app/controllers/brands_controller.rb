@@ -51,6 +51,6 @@ class BrandsController < ApplicationController
   private
 
   def brand_params
-    params.require(:brand).permit(:title, :link, :avatar)
+    params.require(:brand).permit(:title, :link, :avatar, :category_id)
   end
 end
