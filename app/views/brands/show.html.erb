@@ -1,5 +1,7 @@
 <h1><%= @brand.title %></h1>
 <h3><%= @brand.link %></h3>
+Of category:
+<h3><%= @brand.category_id %></h3>
 <%= image_tag @brand.avatar_url.to_s, class: 'project_image'%>
 
 <% if @brand.products.any? %>
