@@ -8,12 +8,11 @@
     <%= f.text_field :link %>
     <br>
     <%= f.file_field :avatar %>
-    <br>
-Select Category:
+
     <%= f.select(:category_id) do %>
-    <% Category.all.each do |category| %>
-      <%= content_tag(:option, category.name, value: category.id) %>
-    <% end %>
+  <% Category.all.each do |category| %>
+    <%= content_tag(:option, category.name, value: category.id) %>
   <% end %>
-  <%= f.submit %>
+<% end %>
+    <%= f.submit %>
   <% end %>
