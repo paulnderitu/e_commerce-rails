@@ -4,7 +4,7 @@
     <%= f.label :name %>
     <%= f.text_field :name %>
     <br>
-    Select Brand:
+    Select Companies:
     <%= f.select(:brand_id) do %>
     <% Brand.all.each do |brand| %>
       <%= content_tag(:option, brand.title, value: brand.id) %>

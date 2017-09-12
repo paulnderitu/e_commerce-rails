@@ -8,7 +8,7 @@
     <%= f.text_field :link %>
     <br>
     <%= f.file_field :avatar %>
-
+Select Industries:
     <%= f.select(:category_id) do %>
   <% Category.all.each do |category| %>
     <%= content_tag(:option, category.name, value: category.id) %>

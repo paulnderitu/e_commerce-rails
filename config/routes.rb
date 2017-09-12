@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :categories
-
+  root to: 'categories#index'
   resources :charges
   resource :cart, only: [:show]
   resources :admins
-  root to: 'brands#index'
+
   resources :brands do
     resources :products
   end
