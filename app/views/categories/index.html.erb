@@ -10,4 +10,25 @@
   </ul>
   <hr>
 
-  <%= link_to "New Category", new_category_path %>
+  <%= link_to "New Industry", new_category_path %>
+  
+  <div class="row newsr" >
+  <h2>Trending in the World:</h2>
+  <div class="news">
+  <%@response["results"].each do |story|%>
+  Section: <%= story["section"]%><br>
+  Title: <a href="<%= story["url"]%>"><%= story["title"]%></a>
+
+
+  <br><%= story["byline"]%><br>
+  <% story["multimedia"].each do |multi|%>
+  <% if multi["format"] == "Normal"%>
+  <img src="<%= multi["url"]%>" alt="">
+  <% end %>
+  <% end %>
+    <hr>
+
+  <% end %>
+
+  </div>
+  </div>

@@ -19,28 +19,7 @@
   <div class="new_brand">
   <% if user_signed_in? %>
     <% if current_user.admin? %>
-       <%= link_to "New Brand", new_brand_path, id: "new_link", remote: true %>
+       <%= link_to "New Company", new_brand_path, id: "new_link", remote: true %>
     <% end %>
   <% end %>
-  </div>
-
-  <div class="row newsr" >
-  <h2>Trending in the World:</h2>
-  <div class="news">
-  <%@response["results"].each do |story|%>
-  Section: <%= story["section"]%><br>
-  Title: <a href="<%= story["url"]%>"><%= story["title"]%></a>
-
-
-  <br><%= story["byline"]%><br>
-  <% story["multimedia"].each do |multi|%>
-  <% if multi["format"] == "Normal"%>
-  <img src="<%= multi["url"]%>" alt="">
-  <% end %>
-  <% end %>
-    <hr>
-
-  <% end %>
-
-  </div>
   </div>

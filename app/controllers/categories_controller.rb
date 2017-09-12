@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   def index
+    @response = JSON.parse(Topstories.get_topstories)
     @categories = Category.all
   end
 
