@@ -4,4 +4,5 @@ class Product < ActiveRecord::Base
   has_many :order_goods
   validates :item, presence: true
   mount_uploader :picture, PictureUploader
+  acts_as_votable
 end
