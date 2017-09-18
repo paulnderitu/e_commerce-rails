@@ -9,7 +9,18 @@ Rails.application.routes.draw do
   resources :admins
 
   resources :brands do
-    resources :products
+    member do
+      put 'like', to: 'brands#upvote'
+      put 'dislike', to: 'brands#downvote'
+    end
+
+    resources :products do
+      member do
+        put 'like', to: 'products#upvote'
+        put 'dislike', to: 'products#downvote'
+      end
+    end
   end
+
   resources :order_goods
 end

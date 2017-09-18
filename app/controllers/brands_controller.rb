@@ -3,6 +3,18 @@ class BrandsController < ApplicationController
     @brands = Brand.all
   end
 
+  def upvote
+    @brand = Brand.find(params[:id])
+    @brand.upvote_by current_user
+    redirect_to brand_path(@brand)
+  end
+
+  def downvote
+    @brand = Brand.find(params[:id])
+    @brand.downvote_by current_user
+    redirect_to brand_path(@brand)
+  end
+
   def show
     @brand = Brand.find(params[:id])
     @category = Category.all.find(@brand.category_id)

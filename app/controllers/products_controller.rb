@@ -5,6 +5,19 @@ class ProductsController < ApplicationController
     @order_good = current_order.order_goods.new
   end
 
+  def upvote
+    @brand = Brand.find(params[:brand_id])
+    @product = @brand.products.find(params[:id])
+    @product.upvote_by current_user
+    redirect_to brand_product_path(@product)
+  end
+
+  def downvote
+    @product = Product.find(params[:id])
+    @product.downvote_by current_user
+    redirect_to brand_product_path(@product)
+  end
+
   def new
     @brand = Brand.find(params[:brand_id])
     @product = @brand.products.new

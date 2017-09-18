@@ -5,4 +5,7 @@ class Product < ActiveRecord::Base
   validates :item, presence: true
   mount_uploader :picture, PictureUploader
   acts_as_votable
+  def score
+    get_upvotes.size - get_downvotes.size
+  end
 end

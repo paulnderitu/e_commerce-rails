@@ -4,4 +4,7 @@ class Brand < ActiveRecord::Base
   validates :title, presence: true
   mount_uploader :avatar, PictureUploader
   acts_as_votable
+  def score
+    get_upvotes.size - get_downvotes.size
+  end
 end

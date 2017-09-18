@@ -18,7 +18,10 @@
    <hr>
   <div class="new_brand">
   <% if user_signed_in? %>
+
     <% if current_user.admin? %>
+
+
        <%= link_to "New Company", new_brand_path, id: "new_link", remote: true %>
     <% end %>
   <% end %>
