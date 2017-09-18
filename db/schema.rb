@@ -27,16 +27,12 @@ ActiveRecord::Schema.define(version: 20170912130418) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_brands_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "brand_id"
-    t.index ["brand_id"], name: "index_categories_on_brand_id"
   end
 
   create_table "order_goods", force: :cascade do |t|
@@ -100,6 +96,4 @@ ActiveRecord::Schema.define(version: 20170912130418) do
     t.index ["voter_type", "voter_id"], name: "index_votes_on_voter_type_and_voter_id"
   end
 
-  add_foreign_key "brands", "categories"
-  add_foreign_key "categories", "brands"
 end
