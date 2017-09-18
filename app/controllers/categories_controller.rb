@@ -6,11 +6,12 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @brand = Brand.all.find(@category.brand_id)
+    # @brand = Brand.all.find(@category.brand_id)
   end
 
   def new
     @category = Category.new
+    @brand = Brand.all
   end
 
   def create

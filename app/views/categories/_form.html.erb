@@ -5,10 +5,12 @@
     <%= f.text_field :name %>
     <br>
     Select Companies:
-    <%= f.select(:brand_id) do %>
-    <% Brand.all.each do |brand| %>
-      <%= content_tag(:option, brand.title, value: brand.id) %>
+  
+
+    <% @brand.each do |brand| %>
+<%= f.label brand.title%>
+      <%= check_box_tag "brand_ids[]", brand.id, false, class: 'checkbox-inline' %>
     <% end %>
-  <% end %>
+
     <%= f.submit %>
   <% end %>
