@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170918095308) do
+ActiveRecord::Schema.define(version: 20170918101058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,10 +30,10 @@ ActiveRecord::Schema.define(version: 20170918095308) do
   end
 
   create_table "brands_categories", force: :cascade do |t|
-    t.integer "brand_id"
-    t.integer "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.bigint "brand_id"
+    t.bigint "category_id"
+    t.index ["brand_id"], name: "index_brands_categories_on_brand_id"
+    t.index ["category_id"], name: "index_brands_categories_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -103,4 +103,6 @@ ActiveRecord::Schema.define(version: 20170918095308) do
     t.index ["voter_type", "voter_id"], name: "index_votes_on_voter_type_and_voter_id"
   end
 
+  add_foreign_key "brands_categories", "brands"
+  add_foreign_key "brands_categories", "categories"
 end
