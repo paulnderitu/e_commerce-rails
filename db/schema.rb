@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20170918101058) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "brand_categories", force: :cascade do |t|
+    t.bigint "brand_id"
+    t.bigint "category_id"
+    t.index ["brand_id"], name: "index_brand_categories_on_brand_id"
+    t.index ["category_id"], name: "index_brand_categories_on_category_id"
+  end
+
   create_table "brands", force: :cascade do |t|
     t.string "title"
     t.string "link"
@@ -27,13 +34,6 @@ ActiveRecord::Schema.define(version: 20170918101058) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"
-  end
-
-  create_table "brands_categories", force: :cascade do |t|
-    t.bigint "brand_id"
-    t.bigint "category_id"
-    t.index ["brand_id"], name: "index_brands_categories_on_brand_id"
-    t.index ["category_id"], name: "index_brands_categories_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -103,6 +103,6 @@ ActiveRecord::Schema.define(version: 20170918101058) do
     t.index ["voter_type", "voter_id"], name: "index_votes_on_voter_type_and_voter_id"
   end
 
-  add_foreign_key "brands_categories", "brands"
-  add_foreign_key "brands_categories", "categories"
+  add_foreign_key "brand_categories", "brands"
+  add_foreign_key "brand_categories", "categories"
 end
