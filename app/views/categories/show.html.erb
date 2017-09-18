@@ -1,7 +1,13 @@
 <h1><%= @category.name %></h1>
 Related Companies:
 <br>
+
+
+<p><%@category.brands.each do |brand|%>
 <%= link_to @brand.title, brand_path(@brand) %>
+<%= brand.title%>
+<%end%>
+</p>
 
 
 
