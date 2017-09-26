@@ -17,9 +17,9 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      add = params[:brand_ids]
-      @brand = Category.find(add)
-      @category.update(brands: @brand)
+      addbrands = params[:brand_ids]
+      @brand = Category.find(addbrands)
+      @category.update!(brands: @brand)
       redirect_to categories_path
     else
       render :new

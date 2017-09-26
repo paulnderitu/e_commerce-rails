@@ -28,6 +28,9 @@ class BrandsController < ApplicationController
   def create
     @brand = Brand.new(brand_params)
     if @brand.save
+      addcategories = params[:category_ids]
+      @category = Brand.find(addcategories)
+      @brand.update!(categories: @category)
       flash[:notice] = 'Brand added successfully!'
       respond_to do |format|
         format.html { redirect_to brands_path(@brand) }

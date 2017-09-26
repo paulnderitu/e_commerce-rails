@@ -9,10 +9,10 @@
     <br>
     <%= f.file_field :avatar %>
 Select Industries:
-    <%= f.select(:category_id) do %>
-  <% Category.all.each do |category| %>
-    <%= content_tag(:option, category.name, value: category.id) %>
-  <% end %>
-<% end %>
+<div class="field">
+  <%= form.label :categories %>
+  <%= collection_check_boxes(:brand, :category_ids, @categories, :id, :name) %>
+</div>
+
     <%= f.submit %>
   <% end %>

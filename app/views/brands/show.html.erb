@@ -3,7 +3,11 @@
 Related Industries:
 <br>
 
-<%= link_to @category.name, category_path(@category) %>
+<p><%@brand.categories.each do |category|%>
+
+<%= category.name%>
+<%end%>
+</p>
 
 
 <%= image_tag @brand.avatar_url.to_s, class: 'project_image'%>
