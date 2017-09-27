@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170918101058) do
+ActiveRecord::Schema.define(version: 20170927091636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,12 @@ ActiveRecord::Schema.define(version: 20170918101058) do
     t.string "avatar"
     t.bigint "category_id"
     t.index ["category_id"], name: "index_brands_on_category_id"
+  end
+
+  create_table "brands_categories", id: false, force: :cascade do |t|
+    t.bigint "brand_id", null: false
+    t.bigint "category_id", null: false
+    t.index ["brand_id", "category_id"], name: "index_brands_categories_on_brand_id_and_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
