@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
   validates :name, presence: true
-  has_many :brand_categories
-  has_many :brands, through: :brand_categories
+  validates :brand_ids, presence: true
+  has_and_belongs_to_many :brands
 end
