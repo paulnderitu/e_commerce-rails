@@ -1,3 +1,27 @@
-// Place all the styles related to the categories controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.welcome {
+  text-align: center;
+}
+
+.search {
+  background: url(paralax_ego1.jpeg)no-repeat center center fixed;
+  text-align: center;
+  height: 550px;
+  background-size: cover;
+  padding-top: 120px;
+}
+
+.about {
+  text-align: center;
+  width: 60%;
+  margin-left: 290px;
+  color: #3b2f63;
+}
+
+.get_started {
+  height: 450px;
+}
+
+.industries {
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

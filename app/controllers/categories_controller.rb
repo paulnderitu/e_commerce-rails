@@ -11,16 +11,14 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
-    @brand = Brand.all
+    @brands = Brand.all
   end
 
   def create
     @category = Category.new(category_params)
     if @category.save
-      addbrands = params[:brand_ids]
-      @brand = Category.find(addbrands)
-      @category.update!(brands: @brand)
-      redirect_to categories_path
+
+      redirect_to categories_path(@category)
     else
       render :new
     end
@@ -49,6 +47,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name, :brand_id)
+    params.require(:category).permit(:name, brand_ids: [])
   end
 end

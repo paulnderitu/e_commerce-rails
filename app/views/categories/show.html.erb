@@ -1,13 +1,10 @@
 <h1><%= @category.name %></h1>
-Related Companies:
+
+<h4 class='text-success'>
+        Related Companies:<br>
+        <%= raw(@category.brands.map{ |b| raw(link_to(b.title, brand_path(b))) }.join(', ') + ".") %>
 <br>
 
-
-<p><%@category.brands.each do |brand|%>
-<%= link_to @brand.title, brand_path(@brand) %>
-<%= brand.title%>
-<%end%>
-</p>
 
 
 

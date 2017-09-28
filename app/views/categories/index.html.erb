@@ -1,17 +1,39 @@
+<div class="welcome">
+  <h1>Welcome to eGo Search</h1>
+</div>
+<div class="search">
 
+  <div class="about">
+  <h2>Who are we?</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+<div class="get_started">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+</div>
+</div>
 
-<h1>Welcome to eGo Search</h1>
-<%= image_tag "e_go.jpeg" %>
+  <div class="container">
+    <div class="row">
+<div class="industries">
 <h1>World Industries</h1>
   <ul>
     <% @categories.each do |category| %>
       <li><%= link_to category.name, category_path(category) %></li>
     <% end %>
   </ul>
+  </div>
+  </div>
+  </div>
   <hr>
 
   <%= link_to "New Industry", new_category_path %>
-  
+
   <div class="row newsr" >
   <h2>Trending in the World:</h2>
   <div class="news">
