@@ -10,7 +10,7 @@
     <%= f.file_field :avatar %>
 Select Industries:
 <div class="field">
-  <%= form.label :categories %>
+  <%= f.label :categories %>
   <%= collection_check_boxes(:brand, :category_ids, @categories, :id, :name) %>
 </div>
 

@@ -22,18 +22,15 @@ class BrandsController < ApplicationController
 
   def new
     @brand = Brand.new
-    @category = Category.all
+    @categories = Category.all
   end
 
   def create
     @brand = Brand.new(brand_params)
     if @brand.save
-      addcategories = params[:category_ids]
-      @category = Brand.find(addcategories)
-      @brand.update!(categories: @category)
       flash[:notice] = 'Brand added successfully!'
       respond_to do |format|
-        format.html { redirect_to brands_path(@brand) }
+        format.html { redirect_to brand_path(@brand) }
         format.js
       end
     else
@@ -66,6 +63,6 @@ class BrandsController < ApplicationController
   private
 
   def brand_params
-    params.require(:brand).permit(:title, :link, :avatar, :category_id)
+    params.require(:brand).permit(:title, :link, :avatar, category_ids: [])
   end
 end

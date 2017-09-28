@@ -2,15 +2,17 @@
 
   <%= form_for @category do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
     <br>
     Select Companies:
-  
 
-    <% @brand.each do |brand| %>
-<%= f.label brand.title%>
-      <%= check_box_tag "brand_ids[]", brand.id, false, class: 'checkbox-inline' %>
-    <% end %>
+
+
+    <div class="field">
+    <%= f.label :brands %>
+    <%= collection_check_boxes(:category, :brand_ids, @brands, :id, :title) %>
+</div>
+
 
     <%= f.submit %>
   <% end %>
