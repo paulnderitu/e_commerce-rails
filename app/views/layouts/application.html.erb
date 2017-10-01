@@ -44,20 +44,22 @@ crossorigin="anonymous"></script>
       <input class="form-control" type="text" placeholder="Search" aria-label="Search">
       <button class="btn btn-success" type="submit">Search Companies</button>
     </form>
+    <% if user_signed_in? %>
+    <p>Hello, <%= current_user.email %></p>
+    <%= button_to "Logout", destroy_user_session_path, :method => 'delete' %>
+    <% end %>
+    <%=link_to "sign up", new_user_registration_path%>
+    <%=link_to "log in", new_user_session_path%>
   </div>
+
 </nav>
 
-<div class="container">
-<% if user_signed_in? %>
-<p>Hello, <%= current_user.email %></p>
-<%= button_to "Logout", destroy_user_session_path, :method => 'delete' %>
-<% end %>
-<%=link_to "sign up", new_user_registration_path%>
-<%=link_to "log in", new_user_session_path%>
+
+
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
-  </div>
+
   </body>
 </html>
