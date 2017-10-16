@@ -1,6 +1,10 @@
 class BrandsController < ApplicationController
   def index
-    @brands = Brand.all
+    @brands = if params[:term]
+                Brand.where('title LIKE ?', "%#{params[:term]}%")
+              else
+                Brand.all
+  end
   end
 
   def upvote
@@ -63,6 +67,6 @@ class BrandsController < ApplicationController
   private
 
   def brand_params
-    params.require(:brand).permit(:title, :link, :avatar, category_ids: [])
+    params.require(:brand).permit(:title, :link, :avatar, :term, category_ids: [])
   end
 end

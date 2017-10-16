@@ -4,84 +4,86 @@
 <div class="search">
 
   <div class="about">
-  <h2>Who are we?</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2>Who are we?</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   </div>
 </div>
 <div class="container-fluid">
   <div class="row">
-<div class="get_started">
-  <h2>Get Started</h2>
-  <br>
-  <p>Follow Simple steps to linkup with millions of businesses online. It is simple as ABC.</p>
-  <br>
-  <h2>Steps</h2>
-  <div class="stepwizard">
-    <div class="stepwizard-row">
-        <div class="stepwizard-step">
-            <button type="button" class="btn btn-default btn-circle">1</button>
+    <div class="get_started">
+      <h2>Get Started</h2>
+      <br>
+      <p>Follow Simple steps to linkup with millions of businesses online. It is simple as ABC.</p>
+      <br>
+      <h2>Steps</h2>
+      <div class="stepwizard">
+        <div class="stepwizard-row">
+          <div class="stepwizard-step">
+            <button type="button" class="btn btn btn-circle">1</button>
             <p>Signup</p>
-        </div>
-        <div class="stepwizard-step">
+          </div>
+          <div class="stepwizard-step">
             <button type="button" class="btn btn-info btn-circle">2</button>
             <p>Search for a business in any category</p>
-        </div>
-        <div class="stepwizard-step">
+          </div>
+          <div class="stepwizard-step">
             <button type="button" class="btn btn-danger btn-circle" disabled="disabled">3</button>
             <p>Request online merge</p>
-        </div>
-        <div class="stepwizard-step">
+          </div>
+          <div class="stepwizard-step">
             <button type="button" class="btn btn-success btn-circle" disabled="disabled">4</button>
             <p>Upon acceptance, Discuss how to to do business</p>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-</div>
-</div>
+  </div>
 </div>
 
 <div class="row">
   <div class="search_bar">
-
-
+    <%= form_tag(brands_path, method: :get) do %>
+    <%= text_field_tag :term, nil, placeholder: "Search Companies e.g Toyota and press Enter", class:"form-control" %>
+    <% end %>
+    <p>Search any Company, follow them and request a merge</p>
   </div>
 
 </div>
 
-  <div class="container">
-    <div class="row">
-<div class="industries">
-<h1>World Industries</h1>
-  <ul>
-    <% @categories.each do |category| %>
-      <li><%= link_to category.name, category_path(category) %></li>
-    <% end %>
-  </ul>
+<div class="container">
+  <div class="row">
+    <div class="industries">
+      <h1>World Industries</h1>
+      <ul>
+        <% @categories.each do |category| %>
+        <li><%= link_to category.name, category_path(category) %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
-  </div>
-  </div>
-  <hr>
+</div>
+<hr>
 
-  <%= link_to "New Industry", new_category_path %>
+<%= link_to "New Industry", new_category_path %>
 
-  <div class="row newsr" >
+<div class="row newsr">
   <h2>Trending in the World:</h2>
   <div class="news">
-  <%@response["results"].each do |story|%>
-  Section: <%= story["section"]%><br>
-  Title: <a href="<%= story["url"]%>"><%= story["title"]%></a>
+    <%@response["results"].each do |story|%>
+    Section:
+    <%= story["section"]%><br>
+    Title:
+    <a href="<%= story[" url"]%>"><%= story["title"]%></a>
 
-
-  <br><%= story["byline"]%><br>
-  <% story["multimedia"].each do |multi|%>
-  <% if multi["format"] == "Normal"%>
-  <img src="<%= multi["url"]%>" alt="">
-  <% end %>
-  <% end %>
+    <br><%= story["byline"]%><br>
+    <% story["multimedia"].each do |multi|%>
+    <% if multi["format"] == "Normal"%>
+    <img src="<%= multi[" url"]%>" alt="">
+    <% end %>
+    <% end %>
     <hr>
 
-  <% end %>
+    <% end %>
 
   </div>
-  </div>
+</div>
