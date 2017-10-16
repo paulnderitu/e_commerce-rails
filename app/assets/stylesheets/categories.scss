@@ -5,7 +5,7 @@
 .search {
   background: url(paralax_ego1.jpeg)no-repeat center center fixed;
   text-align: center;
-  height: 550px;
+  height: 450px;
   background-size: cover;
   padding-top: 120px;
 }
@@ -16,9 +16,70 @@
   margin-left: 290px;
   color: #3b2f63;
 }
+//get_started
 
 .get_started {
+  padding-top: -20px;
   height: 450px;
+  text-align: center;
+  background-color: #fff;
+  color: #ffffff, opacity 85.0%;
+}
+
+body {
+  margin: 40px;
+}
+
+.stepwizard-step p {
+  margin-top: 10px;
+}
+
+.stepwizard-row {
+  display: table-row;
+}
+
+.stepwizard {
+  display: table;
+  width: 100%;
+  position: relative;
+}
+
+.stepwizard-step button[disabled] {
+  opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+}
+
+.stepwizard-row:before {
+  top: 14px;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  z-order: 0;
+}
+
+.stepwizard-step {
+  display: table-cell;
+  text-align: center;
+  position: relative;
+}
+
+.btn-circle {
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+//end of get_started
+
+.search_bar {
+  height: 450px;
+  text-align: center;
 }
 
 .industries {
