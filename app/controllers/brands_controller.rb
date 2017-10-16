@@ -1,10 +1,7 @@
 class BrandsController < ApplicationController
   def index
-    @brands = if params[:term]
-                Brand.where('title LIKE ?', "%#{params[:term]}%")
-              else
-                Brand.all
-  end
+    @brands = Brand.all
+    @brands = Brand.search(params[:term])
   end
 
   def upvote

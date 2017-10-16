@@ -7,4 +7,12 @@ class Brand < ActiveRecord::Base
   def score
     get_upvotes.size - get_downvotes.size
   end
+
+  def self.search(term)
+    if term
+      where('title LIKE ?', "%#{term}%")
+    else
+      order('id DESC')
+    end
+  end
 end
