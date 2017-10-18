@@ -3,9 +3,12 @@
 </div>
 <div class="search">
 
-  <div class="about">
+  <div class="about-responsive">
     <h2>Who are we?</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>Connect with potential partners around the world doing what you are passionate about.</p>
+    <p>We are the fastest growing database that connect startuos and firms in the same line if work in the world.
+      Do you have a product, but do  not know who in the world would kille for it? We allow producers meet consumers directly from every corner of the world.
+      Shop/connect/apply for a job or a place to stay all over the world all in place.</p>
   </div>
 </div>
 <div class="container-fluid">
@@ -13,7 +16,9 @@
     <div class="get_started">
       <h2>Get Started</h2>
       <br>
-      <p>Follow Simple steps to linkup with millions of businesses online. It is simple as ABC.</p>
+      <p>Follow Simple steps to linkup with millions of businesses online. It is simple as ABC.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
       <br>
       <h2>Steps</h2>
       <div class="stepwizard">
@@ -32,7 +37,7 @@
           </div>
           <div class="stepwizard-step">
             <button type="button" class="btn btn-success btn-circle" disabled="disabled">4</button>
-            <p>Upon acceptance, Discuss how to to do business</p>
+            <p>Upon acceptance, Discuss how to to do business.</p>
           </div>
         </div>
       </div>
@@ -45,45 +50,52 @@
     <%= form_tag(brands_path, method: :get) do %>
     <%= text_field_tag :term, nil, placeholder: "Search Companies e.g Toyota and press Enter", class:"form-control" %>
     <% end %>
-    <p>Search any Company, follow them and request a merge</p>
+    <br>
+    <div class="search_content-responsive">
+
+      Search for any Company in our database, follow them and request a merge. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+      ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
   </div>
+</div>
 
 </div>
 
 <div class="container">
-  <div class="row">
-    <div class="industries">
-      <h1>World Industries</h1>
-      <ul>
-        <% @categories.each do |category| %>
-        <li><%= link_to category.name, category_path(category) %></li>
-        <% end %>
-      </ul>
-    </div>
+<div class="row">
+  <div class="industries">
+    <h1>World Industries</h1>
+    <ul>
+      <% @categories.each do |category| %>
+      <li><%= link_to category.name, category_path(category) %></li>
+      <% end %>
+    </ul>
   </div>
+</div>
 </div>
 <hr>
 
 <%= link_to "New Industry", new_category_path %>
 
+<div class="container-fluid">
 <div class="row newsr">
-  <h2>Trending in the World:</h2>
-  <div class="news">
-    <%@response["results"].each do |story|%>
-    Section:
-    <%= story["section"]%><br>
-    Title:
-    <a href="<%= story[" url"]%>"><%= story["title"]%></a>
+<h2>Trending in the World:</h2>
+<div class="news">
+  <%@response["results"].each do |story|%>
+  Section:
+  <%= story["section"]%><br>
+  Title:
+  <a href="<%= story["url"]%>"><%= story["title"]%></a>
 
-    <br><%= story["byline"]%><br>
-    <% story["multimedia"].each do |multi|%>
-    <% if multi["format"] == "Normal"%>
-    <img src="<%= multi[" url"]%>" alt="">
-    <% end %>
-    <% end %>
-    <hr>
+  <br><%= story["byline"]%><br>
+  <% story["multimedia"].each do |multi|%>
+  <% if multi["format"] == "Normal"%>
+  <img src="<%= multi[" url"]%>" alt="">
+  <% end %>
+  <% end %>
+  <hr>
 
-    <% end %>
+  <% end %>
 
-  </div>
+</div>
+</div>
 </div>

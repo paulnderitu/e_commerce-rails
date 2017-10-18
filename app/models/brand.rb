@@ -12,7 +12,7 @@ class Brand < ActiveRecord::Base
     if term
       where('title LIKE ?', "%#{term}%")
     else
-      order('id DESC')
+      all
     end
   end
 end

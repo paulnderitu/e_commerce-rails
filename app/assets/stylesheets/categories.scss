@@ -82,13 +82,19 @@
   padding-top: 120px;
   text-align: center;
   background-color: #333333;
-  color: #ffffff, opacity 85.0%;
+  color: #ffffff;
 
   .form-control {
     margin: auto;
     width: 350px;
     height: 50px;
   }
+}
+
+.search_content {
+  text-align: center;
+  width: 80%;
+  padding-left: 270px;
 }
 
 .industries {
