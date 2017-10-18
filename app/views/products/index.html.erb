@@ -1,9 +1,21 @@
+<div class="container-fluid">
+
 
 <% @products.each do |product| %>
-   <p><%= product.item %> | <%= number_to_currency product.price %>
-   <%= form_for @order_good do |f| %>
-     <%= f.hidden_field :product_id, value: product.id %>
-     <%= f.number_field :quantity %>
-     <%= f.submit "Add to cart" %>
-   <% end %></p>
- <% end %>
+<h1><%= link_to product.item, brand_products_path(product) %></h1>
+<p>
+  <br>
+  <%= image_tag product.picture_url.to_s, class: 'product_image'%>
+  <br>
+  Cost: <%= number_to_currency product.price %>
+  <%= form_for @order_good do |f| %>
+
+   <%= f.hidden_field :product_id, value: product.id %>
+
+  <%= f.number_field :quantity, placeholder: "Quantity e.g 5" %>
+  <br>
+  <br>
+  <%= f.submit "Add to cart" %>
+  <% end %></p>
+<% end %>
+</div>

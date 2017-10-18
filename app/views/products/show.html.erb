@@ -1,5 +1,9 @@
-<h1><a href="<%= @product.item %>"></a></h1>
-<%= image_tag @product.picture_url.to_s, class: 'project_image'%>
+<h1><%= @product.item %></h1>
+<%= image_tag @product.picture_url.to_s, class: 'product_image'%>
+<br>
+<br>
+USD: <%= @product.price %>
+
 
 <h3>Upvote or Downvote this product:</h3>
 <%= link_to like_brand_product_path(@product), method: :put do %>

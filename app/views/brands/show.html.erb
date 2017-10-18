@@ -1,58 +1,67 @@
 <h1><%= @brand.title %></h1>
 <h3><%= @brand.link %></h3>
-<%= image_tag @brand.avatar_url.to_s, class: 'project_image'%>
-<h4>Related Industries:</h4>
+<div class="company_image">
+  <%= image_tag @brand.avatar_url.to_s, class: 'company_image'%>
+</div>
 
-<%= raw(@brand.categories.map{ |c| raw(link_to(c.name, category_path(c))) }.join(', ') + ".") %>
-<br>
+<div class="product_list">
 
-
-
-
-<% if @brand.products.any? %>
-    <h4>Here are the products for this Company:</h4>
-
-    <ul>
-      <% @brand.products.each do |product| %>
-        <li>
-          <%= product.item %>
-          <% if user_signed_in? %>
-          <%= link_to "show", brand_product_path(@brand, product) %>
-
-
-          <% if current_user.id == product.user_id %>|
-
-          <h3>Upvote or Downvote this company:</h3>
-          <%= link_to like_brand_path(@brand), method: :put do %>
-            Upvote
-            <%= @brand.get_upvotes.size %>
-          <% end %>
-          <%= link_to dislike_brand_path(@brand), method: :put do %>
+  <h3>Do you like this company?</h3>
+  <%= link_to like_brand_path(@brand), method: :put do %>
+  Upvote
+  <%= @brand.get_upvotes.size %>
+  <% end %>
+  <%= link_to dislike_brand_path(@brand), method: :put do %>
   Downvote
   <%= @brand.get_downvotes.size %>
-<% end %>
-<%= @brand.score%>
-          <%= link_to "Edit", edit_brand_product_path(@brand, product) %> |
-          <%= link_to "Delete", brand_product_path(@brand, product),
+  <% end %>
+  <%= @brand.score%>
+
+  <h4>Related Industries:</h4>
+  <%= raw(@brand.categories.map{ |c| raw(link_to(c.name, category_path(c))) }.join(', ') + ".") %>
+
+  <% if @brand.products.any? %>
+  <h4>Here are the products for this Company:</h4>
+
+  <% @brand.products.each do |product| %>
+  <h2><%= product.item %></h2>
+
+  <br>
+  <%= image_tag product.picture_url.to_s, class: 'product_image'%>
+  <br>
+  <br>
+
+  <%= link_to "view more", brand_product_path(@brand, product), class: 'btn btn-info' %>
+  <br>
+  <br>
+
+  <% if user_signed_in? %>
+
+  <% if current_user.id == product.user_id %>|
+  <%= link_to "Edit", edit_brand_product_path(@brand, product) %>
+  |
+  <%= link_to "Delete", brand_product_path(@brand, product),
                                    :data => {:confirm => "Are you sure?",
                                                   :method => "delete"} %>
-                                                  <%end%>
-                                                  <% end %>
-        </li>
-      <% end %>
-    </ul>
-  <% else %>
-    <p>There are no products yet!</p>
+  <%end%>
   <% end %>
-  <% if user_signed_in? %>
-  <p><%= link_to "Add a product", new_brand_product_path(@brand) %></p>
 
-  <% if current_user.admin? %>
+  <% end %>
 
- <p><%= link_to "Delete", brand_path(@brand),
+<% else %>
+  <p>There are no products yet!</p>
+  <% end %>
+</div>
+
+<% if user_signed_in? %>
+<p><%= link_to "Add a product", new_brand_product_path(@brand) %></p>
+
+<% if current_user.admin? %>
+
+<p><%= link_to "Delete", brand_path(@brand),
                           :data => {:confirm => "You sure?",
                                     :method => "delete"} %></p>
 
 <%end%>
 <%end%>
-  <p><%= link_to "Return to brands", brands_path %></p>
+<p><%= link_to "Return to brands", brands_path %></p>
